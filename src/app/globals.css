@@ -24,3 +24,9 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.btn {
+  padding: 12px 16px;
+  background-color: #ff5517;
+  border-radius: 4px;
+}
