@@ -13,7 +13,7 @@ const FoodsPage = async () => {
 
     return (
         <div>
-            Total {foods.length} food found.
+            <h2 className='text-4xl font-bold'>Total <span className='text-yellow-500'>{foods.length}</span> food found.</h2>
         </div>
     );
 };
