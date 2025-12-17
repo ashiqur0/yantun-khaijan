@@ -1,6 +1,14 @@
 // FoodCard.jsx
-const FoodCard = ({ food, onAddToCart, onViewDetails }) => {
+const FoodCard = ({ food }) => {
   const { title, foodImg, price, category } = food;
+
+  const onAddToCart = food => {
+
+  }
+
+  const onViewDetails = food => {
+
+  }
 
   return (
     <div className="bg-white border rounded-xl shadow-sm hover:shadow-md transition">
@@ -28,14 +36,12 @@ const FoodCard = ({ food, onAddToCart, onViewDetails }) => {
         {/* Buttons */}
         <div className="flex gap-3 pt-3">
           <button
-            onClick={() => onAddToCart(food)}
             className="flex-1 bg-green-600 text-white py-2 rounded-lg text-sm font-medium hover:bg-green-700 transition"
           >
             Add to Cart
           </button>
 
           <button
-            onClick={() => onViewDetails(food)}
             className="flex-1 bg-blue-600 text-white py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition"
           >
             View Details
