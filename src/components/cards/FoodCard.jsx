@@ -36,7 +36,7 @@ const FoodCard = ({ food }) => {
           </button>
 
           <Link href={`/foods/${id}`}
-            className="flex-1 bg-blue-600 text-white py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition"
+            className="flex-1 bg-blue-600 text-white py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition text-center"
           >
             View Details
           </Link>
