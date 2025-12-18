@@ -1,5 +1,6 @@
 'use client'
 
+import ReviewCard from '@/components/cards/ReviewCard';
 import React, { useEffect, useState } from 'react';
 
 const ReviewsPage = () => {
@@ -20,7 +21,7 @@ const ReviewsPage = () => {
 
             <div className='grid my-5 grid-cols-1 md:grid-cols-3 gap-5'>
                 {
-                    reviews.map(food => <FoodCard key={food.id} food={food}></FoodCard>)
+                    reviews.map(food => <ReviewCard key={reviews.id} reviews={reviews}></ReviewCard>)
                 }
             </div>
         </div>
