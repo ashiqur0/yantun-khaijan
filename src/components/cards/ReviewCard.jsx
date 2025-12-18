@@ -1,90 +1,45 @@
 // ReviewCard.jsx
 import { useState } from "react";
+import { BiSolidStar } from "react-icons/bi";
+import { SlStar } from "react-icons/sl";
+import { FcLike } from "react-icons/fc";
 
-const ReviewCard = ({ review, currentUserEmail }) => {
-  const {
-    user,
-    photo,
-    rating,
-    review: comment,
-    likes,
-    date,
-  } = review;
+const ReviewCard = ({ reviews }) => {
 
-  // check if current user already liked
-  const [liked, setLiked] = useState(
-    likes.includes(currentUserEmail)
-  );
+    console.log(reviews);
+    const { photo, user: name, email, rating, review, date} = reviews;
 
-  const [likeCount, setLikeCount] = useState(likes.length);
+    return (
+        <div className="bg-white rounded p-4 text-black flex flex-col justify-between">
 
-  const handleLike = () => {
-    if (liked) {
-      setLikeCount(likeCount - 1);
-    } else {
-      setLikeCount(likeCount + 1);
-    }
-    setLiked(!liked);
-  };
+            {/* phot, name, email */}
+            <div className="flex items-center gap-5">
+                <img src={photo} alt="" className="w-13 h-auto rounded-full" />
+                <div>
+                    <h2 className="font-semibold text-xl text-gray-900">{name}</h2>
+                    <h3 className="text-indigo-950">{email}</h3>
+                </div>
+            </div>
 
-  return (
-    <div className="bg-white border rounded-xl p-5 shadow-sm hover:shadow-md transition">
-      {/* User Info */}
-      <div className="flex items-center gap-4">
-        <img
-          src={photo}
-          alt={user}
-          className="w-12 h-12 rounded-full object-cover"
-        />
+            {/* ratings */}
+            <div className="flex items-center gap-1 mt-3 text-amber-500">
+                {
+                    [...Array(rating)].map((_, index) => <span key={index}><BiSolidStar /></span>)
+                }
+                {
+                    [...Array(5-rating)].map((_, index) => <span key={index}><SlStar /></span>)
+                }
+            </div>
 
-        <div>
-          <h3 className="font-semibold text-gray-800">{user}</h3>
-          <p className="text-xs text-gray-500">
-            {new Date(date).toLocaleDateString()}
-          </p>
+            <p className="my-3 text-gray-800">{review}</p>
+
+            <p className="text-gray-500">{date?.slice(0,10)}</p>
+            <div className="flex items-center gap-5">
+                <button className="w-25 h-9 px-3 py-2 hover:bg-sky-500 rounded border border-gray-600 flex items-center gap-2"><span>Like</span><FcLike /></button>
+                <p className="w-25 h-9 px-3 py-2 rounded border border-gray-600 text-gray-500">2 Likes</p>
+            </div> 
         </div>
-      </div>
-
-      {/* Rating */}
-      <div className="flex gap-1 mt-3">
-        {[...Array(5)].map((_, i) => (
-          <span
-            key={i}
-            className={`text-lg ${
-              i < rating ? "text-yellow-400" : "text-gray-300"
-            }`}
-          >
-            ★
-          </span>
-        ))}
-      </div>
-
-      {/* Review Text */}
-      <p className="text-gray-700 text-sm mt-3 leading-relaxed">
-        {comment}
-      </p>
-
-      {/* Like Section */}
-      <div className="flex items-center gap-3 mt-4">
-        <button
-          onClick={handleLike}
-          className={`px-4 py-1.5 rounded-full text-sm font-medium transition
-            ${
-              liked
-                ? "bg-blue-600 text-white"
-                : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-            }
-          `}
-        >
-          👍 Like
-        </button>
-
-        <span className="text-sm text-gray-500">
-          {likeCount} likes
-        </span>
-      </div>
-    </div>
-  );
+    );
 };
 
 export default ReviewCard;

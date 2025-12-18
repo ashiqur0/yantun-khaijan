@@ -11,7 +11,7 @@ const ReviewsPage = () => {
         fetch('https://taxi-kitchen-api.vercel.app/api/v1/reviews')
             .then(res => res.json())
             .then(data => {
-                setReviews(data);
+                setReviews(data.reviews || []);
             })
     }, []);
 
@@ -21,7 +21,7 @@ const ReviewsPage = () => {
 
             <div className='grid my-5 grid-cols-1 md:grid-cols-3 gap-5'>
                 {
-                    reviews.map(food => <ReviewCard key={reviews.id} reviews={reviews}></ReviewCard>)
+                    reviews.map(reviews => <ReviewCard key={reviews.id} reviews={reviews}></ReviewCard>)
                 }
             </div>
         </div>
