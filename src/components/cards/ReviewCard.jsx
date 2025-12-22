@@ -1,43 +1,75 @@
-// ReviewCard.jsx
-import { useState } from "react";
-import { BiSolidStar } from "react-icons/bi";
-import { SlStar } from "react-icons/sl";
-import { FcLike } from "react-icons/fc";
+import React, { useState } from 'react';
+import { Heart, MessageSquare, MoreVertical } from 'lucide-react';
 
-const ReviewCard = ({ reviews }) => {
+const ReviewCard = ({ data }) => {
+    const [likes, setLikes] = useState(data.likes.length);
+    const [isLiked, setIsLiked] = useState(false);
 
-    console.log(reviews);
-    const { photo, user: name, email, rating, review, date} = reviews;
+    const handleLike = () => {
+        setLikes(prev => isLiked ? prev - 1 : prev + 1);
+        setIsLiked(!isLiked);
+    };
+
+    const formatDate = (dateString) => {
+        return new Date(dateString).toLocaleDateString('en-GB', {
+            day: 'numeric',
+            month: 'short',
+            year: 'numeric'
+        });
+    };
 
     return (
-        <div className="bg-white rounded p-4 text-black flex flex-col justify-between">
-
-            {/* phot, name, email */}
-            <div className="flex items-center gap-5">
-                <img src={photo} alt="" className="w-13 h-auto rounded-full" />
-                <div>
-                    <h2 className="font-semibold text-xl text-gray-900">{name}</h2>
-                    <h3 className="text-indigo-950">{email}</h3>
+        <div className="max-w-md bg-white rounded-2xl shadow-sm border border-gray-100 p-5 font-sans">
+            {/* Header: User Info */}
+            <div className="flex justify-between items-start mb-4">
+                <div className="flex items-center gap-3">
+                    <img
+                        src={data.photo}
+                        alt={data.user}
+                        className="w-12 h-12 rounded-full object-cover ring-2 ring-gray-50"
+                    />
+                    <div>
+                        <h3 className="font-bold text-gray-900 text-sm leading-tight">{data.user}</h3>
+                        <p className="text-xs text-gray-500">{formatDate(data.date)}</p>
+                    </div>
                 </div>
+                <button className="text-gray-400 hover:text-gray-600">
+                    <MoreVertical size={20} />
+                </button>
             </div>
 
-            {/* ratings */}
-            <div className="flex items-center gap-1 mt-3 text-amber-500">
-                {
-                    [...Array(rating)].map((_, index) => <span key={index}><BiSolidStar /></span>)
-                }
-                {
-                    [...Array(5-rating)].map((_, index) => <span key={index}><SlStar /></span>)
-                }
+            {/* Rating Stars */}
+            <div className="flex gap-1 mb-3">
+                {[...Array(5)].map((_, i) => (
+                    <span key={i} className={i < data.rating ? "text-yellow-400" : "text-gray-200"}>
+                        ★
+                    </span>
+                ))}
             </div>
 
-            <p className="my-3 text-gray-800">{review}</p>
+            {/* Review Content */}
+            <div className="mb-6">
+                <p className="text-gray-700 text-sm leading-relaxed">
+                    {data.review}
+                </p>
+            </div>
 
-            <p className="text-gray-500">{date?.slice(0,10)}</p>
-            <div className="flex items-center gap-5">
-                <button className="w-25 h-9 px-3 py-2 hover:bg-sky-500 rounded border border-gray-600 flex items-center gap-2"><span>Like</span><FcLike /></button>
-                <p className="w-25 h-9 px-3 py-2 rounded border border-gray-600 text-gray-500">2 Likes</p>
-            </div> 
+            {/* Actions */}
+            <div className="flex items-center gap-6 pt-4 border-t border-gray-50">
+                <button
+                    onClick={handleLike}
+                    className={`flex items-center gap-2 text-sm font-medium transition-colors ${isLiked ? 'text-red-500' : 'text-gray-500 hover:text-red-500'
+                        }`}
+                >
+                    <Heart size={18} fill={isLiked ? "currentColor" : "none"} />
+                    <span>{likes}</span>
+                </button>
+
+                <button className="flex items-center gap-2 text-sm font-medium text-gray-500 hover:text-blue-500">
+                    <MessageSquare size={18} />
+                    <span>Reply</span>
+                </button>
+            </div>
         </div>
     );
 };
