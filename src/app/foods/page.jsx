@@ -19,7 +19,7 @@ const FoodsPage = async ({ searchParams }) => {
 
     return (
         <div>
-            <h2 className={`text-4xl font-bold text-black ${style.bgred}`}>Total <span className='text-yellow-500'>{foods.length}</span> Foods Found</h2>
+            <h2 className={`text-4xl font-bold ${style.bgred}`}>Total <span className='text-yellow-500'>{foods.length}</span> Foods Found</h2>
 
             <div className='my-4'>
                 <InputSearch></InputSearch>
