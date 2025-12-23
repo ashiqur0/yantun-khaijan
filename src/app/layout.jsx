@@ -14,8 +14,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Yantun Khaijan",
-  description: "Noakhali Best Fast Food",
+  title: {
+    default: 'Yantun Khaijan',
+    template: "%s | Yantun Khaijan"
+  }
 };
 
 export default function RootLayout({ children }) {
