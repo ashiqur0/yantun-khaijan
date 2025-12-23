@@ -1,13 +1,20 @@
 'use client'
 
+import { useRouter, useSearchParams } from 'next/navigation';
 import React from 'react';
 
 const InputSearch = () => {
 
+    const router = useRouter();
+    const params = useSearchParams();
+
     const handleInputSearch = (e) => {
         e.preventDefault();
         const search = e.target.search.value;
-        console.log({ search });
+
+        const newParams = new URLSearchParams(params.toString());
+        newParams.set('search', search);
+        router.push(`?${newParams.toString()}`);
     }
 
     return (

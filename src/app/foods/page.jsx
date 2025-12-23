@@ -15,7 +15,6 @@ const getFoods = async (search) => {
 const FoodsPage = async ({ searchParams }) => {
 
     const {search = ''} = await searchParams;
-    console.log(data);
 
     const foods = await getFoods(search);
 
