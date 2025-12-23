@@ -1,5 +1,9 @@
 // app/foods/[id]/page.jsx
 
+export async function generateStaticParams() {
+  return [{ id: '52898' }, { id: '52955' }, { id: '52926' }]
+}
+
 const getFood = async (id) => {
   const res = await fetch(
     `https://taxi-kitchen-api.vercel.app/api/v1/foods/${id}`,

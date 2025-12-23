@@ -27,7 +27,7 @@ const InputSearch = () => {
                     className='px-1 py-3 border-2 rounded w-2xl'
                 />
 
-                <button type='submit' className='px-4 py-2 bg-yellow-500 text-black rounded cursor-pointer'>Search</button>
+                <button type='submit' className='btn btn-soft btn-success border border-orange-400'>Search</button>
             </form>
         </div>
     );
