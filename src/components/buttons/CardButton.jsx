@@ -1,12 +1,15 @@
 'use client'
 
+import useAuth from '@/hooks/useAuth';
 import React, { useState } from 'react';
 
 const CardButton = ({ food }) => {
 
     const [inCart, setInCart] = useState(false);
+    const { addToCart } = useAuth();
 
     const handleAddToCart = () => {
+        addToCart(food);
         setInCart(true);
     }
 
