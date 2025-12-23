@@ -1,4 +1,5 @@
 import Link from "next/link";
+import CardButton from "../buttons/CardButton";
 
 // FoodCard.jsx
 const FoodCard = ({ food }) => {
@@ -29,11 +30,7 @@ const FoodCard = ({ food }) => {
 
         {/* Buttons */}
         <div className="flex gap-3 pt-3">
-          <button
-            className="flex-1 bg-green-600 text-white py-2 rounded-lg text-sm font-medium hover:bg-green-700 transition"
-          >
-            Add to Cart
-          </button>
+          <CardButton></CardButton>
 
           <Link href={`/foods/${id}`}
             className="flex-1 bg-blue-600 text-white py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition text-center"
