@@ -1,10 +1,11 @@
 'use client'
 
-import React, { useContext } from 'react';
+import { CartContext } from '@/context/CartContext';
+import React, { use, useContext } from 'react';
 
 const CartItems = () => {
 
-    const { cart } = useContext();
+    const { cart } = use(CartContext);
 
     return (
         <div>
