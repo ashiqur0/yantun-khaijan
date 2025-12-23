@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 
-const CardButton = () => {
+const CardButton = ({ food }) => {
 
     const [inCart, setInCart] = useState(false);
 
@@ -16,7 +16,7 @@ const CardButton = () => {
             onClick={handleAddToCart}
             className="flex-1 bg-green-600 text-white py-2 rounded-lg text-sm font-medium hover:bg-green-700 transition disabled:bg-gray-500"
         >
-            {inCart ? 'Added': 'Add to Cart'}
+            {inCart ? 'Added' : 'Add to Cart'}
         </button>
     );
 };
