@@ -2,6 +2,7 @@ import Link from "next/link";
 import CardButton from "../buttons/CardButton";
 
 import style from '@/app/foods/foods.module.css'
+import Image from "next/image";
 
 // FoodCard.jsx
 const FoodCard = ({ food }) => {
@@ -10,7 +11,15 @@ const FoodCard = ({ food }) => {
   return (
     <div className={`bg-white border rounded-xl shadow-sm hover:shadow-md transition ${style.bgred}`}>
       {/* Image */}
-      <img
+      {/* <img
+        src={foodImg}
+        alt={title}
+        className="w-full h-48 object-cover rounded-t-xl"
+      /> */}
+
+      <Image
+        width={300}
+        height={150}
         src={foodImg}
         alt={title}
         className="w-full h-48 object-cover rounded-t-xl"
