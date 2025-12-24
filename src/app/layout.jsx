@@ -3,16 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import CartProvider from "@/Provider/CartProvider";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
+// global font
 const poppins = Poppins({
   weight: ['400', '500', '700'],
   subsets: ["latin"],
