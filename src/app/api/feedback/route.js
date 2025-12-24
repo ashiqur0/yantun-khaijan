@@ -1,7 +1,7 @@
 import { connect } from "@/app/lib/dbConnect";
 import { feedback } from "../route"
 
-// create collection
+// create and | or connect collection
 const feedbackCollection = connect('feedbacks');
 
 // get array of feedbacks
