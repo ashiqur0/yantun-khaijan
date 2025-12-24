@@ -10,6 +10,7 @@ const Navbar = () => {
                 <div className='space-x-5'>
                     <Link prefetch={false} href={'/foods'} className="btn">Foods</Link>
                     <Link href={'/reviews'} className="btn">Reviews</Link>
+                    <Link href={'/feedbacks'} className="btn">Feedbacks</Link>
                 </div>
             </nav>
         </header>
