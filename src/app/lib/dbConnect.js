@@ -8,3 +8,8 @@ const client = new MongoClient(uri, {
     deprecationErrors: true,
   }
 });
+
+export const connect = (collection) => {
+    const database = process.env.DB_NAME;
+    return client.db(database).collection(collection);
+}
