@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Heart, MessageSquare, MoreVertical } from 'lucide-react';
+import Image from 'next/image';
 
 const ReviewCard = ({ data }) => {
     const [likes, setLikes] = useState(data.likes.length);
@@ -23,7 +24,15 @@ const ReviewCard = ({ data }) => {
             {/* Header: User Info */}
             <div className="flex justify-between items-start mb-4">
                 <div className="flex items-center gap-3">
-                    <img
+                    {/* <img
+                        src={data.photo}
+                        alt={data.user}
+                        className="w-12 h-12 rounded-full object-cover ring-2 ring-gray-50"
+                    /> */}
+
+                    <Image
+                        width={56}
+                        height={56}
                         src={data.photo}
                         alt={data.user}
                         className="w-12 h-12 rounded-full object-cover ring-2 ring-gray-50"
