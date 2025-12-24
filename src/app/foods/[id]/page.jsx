@@ -15,7 +15,19 @@ export async function generateMetadata({ params }) {
   const { details = {} } = await res.json();
 
   return {
-    title: details.title
+    title: details.title,
+    generator: 'Next.js',
+    applicationName:'Yantun Khaijan',
+    referrer: 'origin-when-cross-origin',
+    keywords: ['Next.js', 'React', 'JavaScript', 'Yantun Khaijan'],
+    authors: [{ name: 'Md Ashiqur Rahman' }, { name: 'Md Ashiqur Rahman', url: 'https://github.com/ashiqur0' }],
+    creator: 'Md Ashiqur Rahman',
+    publisher: 'Md Ashiqur Rahman',
+    formatDetection: {
+      email: false,
+      address: false,
+      telephone: false,
+    },
   }
 }
 
