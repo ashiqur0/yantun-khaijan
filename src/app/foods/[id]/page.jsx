@@ -1,5 +1,7 @@
 // app/foods/[id]/page.jsx
 
+import { redirect } from "next/navigation";
+
 export async function generateStaticParams() {
   return [{ id: '52898' }, { id: '52955' }, { id: '52926' }]
 }
@@ -47,14 +49,17 @@ const FoodDetails = async ({ params }) => {
   const { id } = await params;
   const food = await getFood(id);
 
-  if (!food) {
-    return (
-      <div className="text-center py-20">
-        <h2 className="text-2xl font-semibold text-red-500">
-          Food Not Found
-        </h2>
-      </div>
-    );
+  if (!food.title) {
+    // return (
+    //   <div className="text-center py-20">
+    //     <h2 className="text-2xl font-semibold text-red-500">
+    //       Food Not Found
+    //     </h2>
+    //   </div>
+    // );
+
+    // redirect user to foods page if food details not found
+    redirect('/foods')
   }
 
   const {
