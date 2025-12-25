@@ -1,10 +1,13 @@
 import FeedbackCard from '@/components/cards/FeedbackCard';
 import Link from 'next/link';
 import React from 'react';
+import { connect } from '../lib/dbConnect';
 
 export const metadata = {
     title: 'feedbacks'
 }
+
+export const dynamic = 'force-dynamic';
 
 const getFeedback = async () => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_server}/api/feedback`, {
@@ -15,10 +18,8 @@ const getFeedback = async () => {
 }
 
 const FeedbackPage = async () => {
-
     const feedback = await getFeedback();
-    console.log(feedback);
-
+    
     return (
         <div>
             <div className=''>

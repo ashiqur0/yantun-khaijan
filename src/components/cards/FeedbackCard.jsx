@@ -11,7 +11,7 @@ const FeedbackCard = ({ f }) => {
                     <div className="p-2 bg-blue-50 rounded-lg text-blue-600">
                         <MessageSquare size={18} />
                     </div>
-                    <span className="text-xs font-mono text-gray-400">ID: {_id.slice(-8)}</span>
+                    <span className="text-xs font-mono text-gray-400">ID: 2232231</span>
                 </div>
                 <div className='text-gray-500'>
                     {new Date(f.date).toLocaleDateString()}, {' '}
