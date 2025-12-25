@@ -18,7 +18,8 @@ const getFeedback = async () => {
 }
 
 const FeedbackPage = async () => {
-    const feedback = await getFeedback();
+    // const feedback = await getFeedback();
+    const feedback = await connect('feedbacks').find().toArray();
     
     return (
         <div>
