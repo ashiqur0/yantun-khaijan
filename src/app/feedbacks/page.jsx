@@ -1,4 +1,5 @@
 import FeedbackCard from '@/components/cards/FeedbackCard';
+import Link from 'next/link';
 import React from 'react';
 
 export const metadata = {
@@ -19,6 +20,8 @@ const FeedbackPage = async () => {
         <div>
             <div className=''>
                 <h1 className='text-2xl font-bold'>{feedback.length} Feedbacks Found</h1>
+
+                <Link href={'/feedbacks/add'} className='btn'>Add Feedback</Link>
 
                 <div className='grid grid-cols-3 gap-3 mt-5'>
                     {
