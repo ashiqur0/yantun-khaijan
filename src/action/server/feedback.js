@@ -13,3 +13,9 @@ export const postFeedback = async (message) => {
         insertedId: result.insertedId.toString()
     };
 }
+
+// 
+export const getFeedback = async () => {
+    const feedback = await connect('feedbacks').find().toArray();
+    return feedback;
+}
