@@ -19,6 +19,15 @@ const nextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/food-details/:id',  //previous path which is not valid now
+        destination: '/foods/:id',    //current path
+        permanent: true,
+      },
+    ]
+  },
 };
 
 export default nextConfig;
