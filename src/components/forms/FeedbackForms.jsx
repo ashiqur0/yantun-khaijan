@@ -1,7 +1,10 @@
 'use client'
+import { useRouter } from 'next/navigation';
 import React from 'react';
 
 const FeedbackForms = () => {
+
+    const router = useRouter();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -18,6 +21,7 @@ const FeedbackForms = () => {
 
         if (data.insertedId) {
             alert('success');
+            router.push('/feedbacks')
         }
     }
 
