@@ -1,4 +1,4 @@
-const FeedbackSkeleton = () => {
+export const FeedbackSkeleton = () => {
     return (
         <div className="max-w-md bg-white border border-gray-100 rounded-xl p-5 w-full animate-pulse">
             {/* Header Skeleton */}
@@ -23,3 +23,5 @@ const FeedbackSkeleton = () => {
         </div>
     );
 };
+
+// export default FeedbackSkeleton;
