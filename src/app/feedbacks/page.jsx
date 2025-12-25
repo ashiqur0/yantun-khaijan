@@ -1,7 +1,7 @@
 import FeedbackCard from '@/components/cards/FeedbackCard';
 import Link from 'next/link';
 import React from 'react';
-import { connect } from '../lib/dbConnect';
+import { connect } from '../../lib/dbConnect';
 
 export const metadata = {
     title: 'feedbacks'
